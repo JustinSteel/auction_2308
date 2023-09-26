@@ -145,14 +145,14 @@ RSpec.describe Auction do
       @item3.add_bid(@attendee2, 15)
 
       expected = {
+        @attendee2 => {
+          :budget => 75,
+          :items => [@item1, @item2]
+        },
         @attendee1 => 
         {
           :budget => 50,
           :items => [@item1]
-        },
-        @attendee2 => {
-          :budget => 75,
-          :items => [@item1, @item2]
         },
         @attendee3 => {
           :budget => 100,

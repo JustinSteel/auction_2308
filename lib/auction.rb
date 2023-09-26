@@ -52,18 +52,23 @@ class Auction
       # Each value is a hash
       #quantity: total quantity of the item at the market
       #venors: al the venors that sell this item
-
   def bidder_info
     attendee_info = {}
-
+  
     @items.each do |item|
-      item.bids.each do |attendee, bid|
-        attendee_info[attendee] = {
-          budget: attendee.budget,
-          items: items_bid_on
-      }
+      item.bids.each do |attendee, amount|
+        if attendee_info[attendee]
+          attendee_info[attendee][:budget] -= amount
+          attendee_info[attendee][:items] << item
+        else
+          attendee_info[attendee] = {
+            budget: attendee.budget,
+            items: [item]
+          }
+        end
       end
-      attendee_info
     end
+  # require 'pry'; binding.pry
+    attendee_info
   end
 end
