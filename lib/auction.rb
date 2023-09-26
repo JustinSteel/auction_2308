@@ -54,7 +54,7 @@ class Auction
     @items.each do |item|
       item.bids.each do |attendee, amount|
         if attendee_info[attendee]
-          attendee_info[attendee][:budget] -= amount
+          attendee_info[attendee][:budget] 
           attendee_info[attendee][:items] << item
         else
           attendee_info[attendee] = {
