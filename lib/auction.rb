@@ -47,11 +47,7 @@ class Auction
       all_items.uniq
     end
   end
-  # we will be returning a hash
-      #Each key will be an attendee object (must be unique)
-      # Each value is a hash
-      #quantity: total quantity of the item at the market
-      #venors: al the venors that sell this item
+  
   def bidder_info
     attendee_info = {}
   
@@ -68,7 +64,7 @@ class Auction
         end
       end
     end
-  # require 'pry'; binding.pry
+
     attendee_info
   end
 end
